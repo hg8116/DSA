@@ -1,10 +1,9 @@
 /*
-Suppose you are having a 3x3 matrix and a person is standing on (1, 1) and there is an obstacle on center cell. The person needs to go to (3, 3).
-Count the number of paths & Print all the paths.
+Suppose you are having a 3x3 matrix and a person is standing on (0, 0) and there is an obstacle on center cell.
+The person needs to go to (2, 2). Count the number of paths & Print all the paths.
 
 When you land on a new cell, check weather there is obstacle or not.
 */
-
 
 package Recursion.Maze;
 
