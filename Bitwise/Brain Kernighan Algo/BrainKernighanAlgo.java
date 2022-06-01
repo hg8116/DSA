@@ -1,5 +1,5 @@
 /* This algo is used to count the set bits of a binary number */
-public class BrainKernighan {
+public class BrainKernighanAlgo {
   static int count(int n) {
     int c = 0;
     while (n != 0) {
