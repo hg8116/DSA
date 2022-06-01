@@ -1,6 +1,6 @@
 /* Now we can move in all directions, Here backtracking comes in use. */
 
-package Recursion.Maze;
+package Recursion.Backtracking;
 
 import java.util.Arrays;
 

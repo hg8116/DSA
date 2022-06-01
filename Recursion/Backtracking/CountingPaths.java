@@ -3,7 +3,7 @@ Suppose you are having a 3x3 matrix and a person is standing on (1, 1). The pers
 but can only move in DOWN or RIGHT direction. Count the number of paths & Print all the paths.
 */
 
-package Recursion.Maze;
+package Recursion.Backtracking;
 
 import java.util.ArrayList;
 

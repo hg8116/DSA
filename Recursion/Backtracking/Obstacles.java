@@ -5,7 +5,7 @@ The person needs to go to (2, 2). Count the number of paths & Print all the path
 When you land on a new cell, check weather there is obstacle or not.
 */
 
-package Recursion.Maze;
+package Recursion.Backtracking;
 
 public class Obstacles {
     public static void main(String[] args) {
