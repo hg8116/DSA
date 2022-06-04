@@ -1,3 +1,5 @@
+package Algo;
+
 import java.util.Arrays;
 
 public class mergeSort {

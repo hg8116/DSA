@@ -1,3 +1,5 @@
+package Algo.BrainKernighanAlgo;
+
 /* This algo is used to count the set bits of a binary number */
 public class BrainKernighan {
   static int count(int n) {
