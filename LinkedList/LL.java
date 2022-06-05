@@ -285,6 +285,49 @@ public class LL {
         return slow;
     }
 
+    // Reversing the Linked List using recursion
+    public void reverseRec(Node node){
+        if(node == tail){
+            head = tail;
+            return;
+        }
+
+        reverseRec(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+// Without tail node
+//        ListNode first;
+//        if(head == null || head.next == null) return head;
+//        first = reverseList(head.next);
+//        head.next.next = head;
+//        head.next = null;
+//        return first;
+    }
+
+    // In place reversal on Linked List (iterative way)
+    public void reverse(){
+        if(size < 2){
+            return;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while(present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if(next != null){
+                next = next.next;
+            }
+        }
+
+        head = prev;
+    }
+
+
     // Bubble sort linked list
     public void bubbleSort(){
         bubbleSort(size-1, 0);
@@ -324,6 +367,26 @@ public class LL {
         else{
             bubbleSort(row-1, col);
         }
+    }
+
+
+    // Just checking the difference
+    public void traverse(){
+        Node temp = head;
+        while(temp.next != null){
+            System.out.print(temp.value);
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    public void traverse2(){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.value);
+            temp = temp.next;
+        }
+        System.out.println();
     }
 
     private class Node{

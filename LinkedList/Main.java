@@ -10,9 +10,12 @@ public class Main {
         list.insertFirst(17);
         list.insertFirst(18);
         list.insertFirst(4);
-        list.insertLast(99);
-        list.insert(100, 3);
-        list.insertRec(88, 2);
+
+        list.traverse();
+        list.traverse2();
+//        list.insertLast(99);
+//        list.insert(100, 3);
+//        list.insertRec(88, 2);
 //        System.out.println(list.deleteFirst());
 //        System.out.println(list.deleteLast());
 //        System.out.println(list.delete(2));
@@ -33,6 +36,6 @@ public class Main {
 //        list.insert(40);
 //        list.delete(19);
 
-        list.display();
+//        list.display();
     }
 }
