@@ -1,4 +1,6 @@
-public class kadanes {
+package Algo;
+
+public class Kadanes {
   public static void main(String[] args) {
     int arr[] = new int[] { 1, 2, 3, 4, 5 };
     int maxSum = 0;
