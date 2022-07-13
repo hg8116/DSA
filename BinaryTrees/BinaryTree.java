@@ -147,9 +147,7 @@ public class BinaryTree {
         int leftHeight = height(root.left);
         int rightHeight = height(root.right);
 
-        int myHeight = Math.max(leftHeight, rightHeight) + 1;
-
-        return myHeight;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     // Finding the diameter of binary tree
