@@ -52,5 +52,4 @@ public class TopViewOfBinaryTree {
 
         return ans;
     }
-
 }
