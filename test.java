@@ -13,8 +13,5 @@ class test {
     System.out.println(list);
     int ans = Collections.binarySearch(list, 6);
     System.out.println(ans);
-
-
-
   }
 }
