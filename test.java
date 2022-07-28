@@ -1,17 +1,25 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 class test {
-  public static void main(String[] args) {
-    List<Integer> list = new ArrayList<>();
-    list.add(6);
-    list.add(6);
-    list.add(5);
-    list.add(6);
+    public static void main(String[] args) {
+        int[][] arr = new int[5][5];
+        int[] dp = new int[5];
 
-    Collections.sort(list);
+        for(int[] row: arr){
+            Arrays.fill(row, 5);
+        }
+        Arrays.fill(dp, 1);
 
-    System.out.println(list);
-    int ans = Collections.binarySearch(list, 6);
-    System.out.println(ans);
-  }
+//        for(int[] row: arr){
+//            System.out.println(Arrays.toString(row));
+//            System.out.println(Arrays.binarySearch(row, 5));
+//        }
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(5);
+        ans.add(10);
+
+        System.out.println(Collections.binarySearch(ans, 5));
+    }
 }
