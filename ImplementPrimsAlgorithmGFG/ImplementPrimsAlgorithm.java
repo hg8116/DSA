@@ -5,6 +5,8 @@ package ImplementPrimsAlgorithmGFG;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// TC - O((V + E) logV)
+
 public class ImplementPrimsAlgorithm {
     static class Pair {
         int v, wt;
