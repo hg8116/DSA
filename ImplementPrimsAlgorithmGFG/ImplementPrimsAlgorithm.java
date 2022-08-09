@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ImplementPrimsAlgorithm {
-
     static class Pair {
         int v, wt;
 
@@ -75,7 +74,5 @@ public class ImplementPrimsAlgorithm {
         adj.get(4).add(new Pair(2, 7));
 
         primsAlgo(adj, n);
-
     }
-
 }
