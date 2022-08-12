@@ -1,31 +1,17 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 class test {
-    static void insertion_sort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            int key = arr[i];
-            int j = i - 1;
-
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j--];
-            }
-            arr[j + 1] = key;
-        }
-    }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter size of the array: ");
-        int n = sc.nextInt();
-        int[] arr = new int[n];
+        Map<Integer, String> map = new HashMap<>();
 
-        System.out.println("Enter the elements in the array: ");
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
+        map.put(5, "a");
+        map.put(4, "c");
+        map.put(2, "d");
+        map.put(6, "b");
+        map.put(1, "e");
 
-        insertion_sort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(map);
+
     }
 }
