@@ -4,23 +4,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree {
-    static class Node{
+    static class Node {
         int data;
         Node left;
         Node right;
 
-        Node(int data){
+        Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
         }
     }
 
-    static class BT{
+    static class BT {
         static int idx = -1;
-        public static Node buildTree(int[] nodes){
+
+        public static Node buildTree(int[] nodes) {
             idx++;
-            if(nodes[idx] == -1){
+            if (nodes[idx] == -1) {
                 return null;
             }
 
@@ -39,8 +40,8 @@ public class BinaryTree {
     3) right child
     */
 
-    public static void preorder(Node root){
-        if(root == null){
+    public static void preorder(Node root) {
+        if (root == null) {
             return;
         }
         System.out.print(root.data + " ");
@@ -55,8 +56,8 @@ public class BinaryTree {
     3) right child
     */
 
-    public static void inorder(Node root){
-        if(root == null){
+    public static void inorder(Node root) {
+        if (root == null) {
             return;
         }
         inorder(root.left);
@@ -71,8 +72,8 @@ public class BinaryTree {
     3) root
     */
 
-    public static void postorder(Node root){
-        if(root == null){
+    public static void postorder(Node root) {
+        if (root == null) {
             return;
         }
         postorder(root.left);
@@ -85,31 +86,29 @@ public class BinaryTree {
     Traversing the tree level wise, using queue to store data temporarily.
     */
 
-    public static void levelOrder(Node root){
-        if(root == null){
+    public static void levelOrder(Node root) {
+        if (root == null) {
             return;
         }
         Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
 
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             Node currNode = q.remove();
-            if(currNode == null){
+            if (currNode == null) {
                 System.out.println();
-                if(q.isEmpty()){
+                if (q.isEmpty()) {
                     break;
-                }
-                else{
+                } else {
                     q.add(null);
                 }
-            }
-            else{
+            } else {
                 System.out.print(currNode.data + " ");
-                if(currNode.left != null){
+                if (currNode.left != null) {
                     q.add(currNode.left);
                 }
-                if(currNode.right != null){
+                if (currNode.right != null) {
                     q.add(currNode.right);
                 }
             }
@@ -117,8 +116,8 @@ public class BinaryTree {
     }
 
     // Counting the number of nodes in binary tree
-    public static int countOfNodes(Node root){
-        if(root == null){
+    public static int countOfNodes(Node root) {
+        if (root == null) {
             return 0;
         }
         int leftNodes = countOfNodes(root.left);
@@ -128,8 +127,8 @@ public class BinaryTree {
     }
 
     // Finding the sum of nodes in binary tree
-    public static int sumOfNodes(Node root){
-        if(root == null){
+    public static int sumOfNodes(Node root) {
+        if (root == null) {
             return 0;
         }
         int leftSum = sumOfNodes(root.left);
@@ -139,8 +138,8 @@ public class BinaryTree {
     }
 
     // Finding the height of binary tree
-    public static int height(Node root){
-        if(root == null){
+    public static int height(Node root) {
+        if (root == null) {
             return 0;
         }
 
@@ -154,8 +153,8 @@ public class BinaryTree {
 
     // Method 1 -
     // TC - O(n^2)
-    public static int diameter(Node root){
-        if(root == null){
+    public static int diameter(Node root) {
+        if (root == null) {
             return 0;
         }
 
@@ -168,18 +167,18 @@ public class BinaryTree {
 
     // Method 2 -
     // TC - O(n)
-    static class TreeInfo{
+    static class TreeInfo {
         int ht;
         int dia;
 
-        TreeInfo(int ht, int dia){
+        TreeInfo(int ht, int dia) {
             this.ht = ht;
             this.dia = dia;
         }
     }
 
-    public static TreeInfo diameter2(Node root){
-        if(root == null){
+    public static TreeInfo diameter2(Node root) {
+        if (root == null) {
             return new TreeInfo(0, 0);
         }
         TreeInfo left = diameter2(root.left);
