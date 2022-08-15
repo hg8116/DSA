@@ -2,8 +2,6 @@
 
 package DiameterOfABinaryTreeGFG;
 
-import com.sun.source.tree.Tree;
-
 public class DiameterOfABinaryTree {
     private class Node {
         int data;

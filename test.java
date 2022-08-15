@@ -1,38 +1,23 @@
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Stack;
 
 class test {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
+    public static void main(String[] args) {
+        String s = "()";
+        System.out.println(isValid(s));
     }
 
-    public static void main(String[] args) {
-        ListNode head = new ListNode(0);
-        head.next = new ListNode(1);
-        head.next.next = new ListNode(2);
-        head.next.next.next = new ListNode(3);
-        head.next.next.next.next = new ListNode(4);
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
 
-        ListNode temp = head;
-        int len = 1;
-        while(temp.next != null){
-            temp = temp.next;
-            len++;
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
+                stack.push(s.charAt(i));
+            else if((s.charAt(i) == '}' && stack.peek() == '{') || (s.charAt(i) == ']' && stack.peek() == '[') || (s.charAt(i) == ')' && stack.peek() == '('))
+                stack.pop();
+            System.out.println(stack);
         }
-        System.out.println(temp.val + " " + len);
 
+        if(stack.size() != 0) return false;
+        return true;
     }
 }
