@@ -36,6 +36,7 @@ public class ValidateBinarySearchTree {
             return false;
         if (prev != null && root.val <= prev.val)
             return false;
+        prev = root;
         if (!search(root.right))
             return false;
         return true;
