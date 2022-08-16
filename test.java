@@ -1,23 +1,14 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 class test {
     public static void main(String[] args) {
-        String s = "()";
-        System.out.println(isValid(s));
-    }
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
-                stack.push(s.charAt(i));
-            else if((s.charAt(i) == '}' && stack.peek() == '{') || (s.charAt(i) == ']' && stack.peek() == '[') || (s.charAt(i) == ')' && stack.peek() == '('))
-                stack.pop();
-            System.out.println(stack);
-        }
-
-        if(stack.size() != 0) return false;
-        return true;
+        int[] count = new int[26];
+        String s = "leetcode";
+//        for(int i=0; i<s.length(); i++){
+//            count[s.charAt(i) - 'a']++;
+//        }
+        System.out.println((char) ('a' + 3));
+//        System.out.println(Arrays.toString(count));
     }
 }

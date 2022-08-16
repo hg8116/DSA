@@ -16,7 +16,7 @@ public class CheckMirrorInNAryTree {
                 map.put(A[i], stack);
             }
             else{
-                map.get(i).push(A[i+1]);
+                map.get(A[i]).push(A[i+1]);
             }
         }
 
