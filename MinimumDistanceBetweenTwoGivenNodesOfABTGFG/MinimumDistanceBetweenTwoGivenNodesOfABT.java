@@ -1,8 +1,8 @@
 // https://practice.geeksforgeeks.org/problems/min-distance-between-two-given-nodes-of-a-binary-tree/1
 
-package MindistanceBetweenTwoGivenNodesOfABinaryTreeGFG;
+package MinimumDistanceBetweenTwoGivenNodesOfABTGFG;
 
-public class MinDistanceBetweenTwoGivenNodesOfABinaryTree {
+public class MinimumDistanceBetweenTwoGivenNodesOfABT {
     class Node {
         int data;
         Node left, right;
@@ -17,6 +17,8 @@ public class MinDistanceBetweenTwoGivenNodesOfABinaryTree {
         Node LCA = findLCA(root, a, b);
         int distA = findDist(LCA, a);
         int distB = findDist(LCA, b);
+
+        return distA + distB - 2;
     }
 
     Node findLCA(Node root, int a, int b) {
