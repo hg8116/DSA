@@ -9,19 +9,19 @@ public class DFSOfGraph {
         ArrayList<Integer> dfsList = new ArrayList<>();
         boolean[] vis = new boolean[V];
 
-        for(int i=0; i<V; i++){
-            if(vis[i] == false)
+        for (int i = 0; i < V; i++) {
+            if (vis[i] == false)
                 dfs(i, vis, adj, dfsList);
         }
 
         return dfsList;
     }
 
-    public void dfs(int node, boolean[] vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> dfsList){
+    public void dfs(int node, boolean[] vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> dfsList) {
         dfsList.add(node);
         vis[node] = true;
-        for(Integer it: adj.get(node)){
-            if(vis[it] == false)
+        for (Integer it : adj.get(node)) {
+            if (vis[it] == false)
                 dfs(it, vis, adj, dfsList);
         }
 
