@@ -1,56 +1,59 @@
 import java.util.*;
 
 class test {
-    public static int[] findOrder(int n, int[][] pre) {
+    public static List<Integer> eventualSafeNodes(int[][] graph) {
+        int V = graph.length;
         List<List<Integer>> adj = new ArrayList<>();
-        for(int i=0; i<n; i++){
-            adj.add(new ArrayList<Integer>());
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
         }
 
-        for(int i=0; i<pre.length; i++){
-            for(int j=0; j<pre[i].length; j++){
-                adj.get(pre[i][0]).add(pre[i][1]);
+        for(int i=0; i<graph.length; i++){
+            for(int j=0; j<graph[i].length; j++){
+                adj.get(graph[i][j]).add(i);
             }
         }
 
-//        for (List<Integer> x : adj){
-//            System.out.println(x);
-//        }
         System.out.println(adj);
 
-        int[] indegree = new int[n];
-        for(int i=0; i<n; i++){
-            for(Integer it: adj.get(i))
-                indegree[it]++;
-        }
-        System.out.println(Arrays.toString(indegree));
+        int[] vis = new int[V];
+        int[] dfsVis = new int[V];
+        int[] isCycle = new int[V];
 
-        Queue<Integer> q = new LinkedList<>();
-        for(int i=0; i<n; i++){
-            if(indegree[i] == 0)
-                q.add(i);
-        }
-
-        int[] topo = new int[n];
-        int i=0;
-        while(!q.isEmpty()){
-            int curr = q.poll();
-            topo[i++] = curr;
-            for(Integer it: adj.get(curr)){
-                if(--indegree[it] == 0)
-                    q.add(it);
+        for (int i = 0; i < V; i++) {
+            if (vis[i] == 0) {
+                if (dfs(i, vis, dfsVis, adj)) {
+                    isCycle[i] = 1;
+                }
             }
         }
 
-        if(i == n)
-            return topo;
-        return new int[]{};
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            if (isCycle[i] == 0)
+                ans.add(i);
+        }
+
+        return ans;
     }
+
+    static boolean dfs(int i, int[] vis, int[] dfsVis, List<List<Integer>> adj) {
+        vis[i] = 1;
+        dfsVis[i] = 1;
+        for (Integer it : adj.get(i)) {
+            if (vis[it] == 0) {
+                if (dfs(it, vis, dfsVis, adj))
+                    return true;
+            } else if (dfsVis[it] == 1)
+                return true;
+        }
+
+        dfsVis[i] = 0;
+        return false;
+    }
+
     public static void main(String[] args) {
-        int[][] pre = {{1,0},{2,0},{3,1},{3,2}};
-        int n = 4;
-
-        findOrder(4, pre);
-
+        int[][] graph = {{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}};
+        System.out.println(eventualSafeNodes(graph));
     }
 }
