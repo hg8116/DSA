@@ -1,59 +1,34 @@
+import ShortestPathInDAGWithWeights.ShortestPathInDAG;
+
 import java.util.*;
 
 class test {
-    public static List<Integer> eventualSafeNodes(int[][] graph) {
-        int V = graph.length;
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            adj.add(new ArrayList<>());
+    static class Pair {
+        int V, weight;
+
+        Pair(int V, int weight) {
+            this.V = V;
+            this.weight = weight;
         }
-
-        for(int i=0; i<graph.length; i++){
-            for(int j=0; j<graph[i].length; j++){
-                adj.get(graph[i][j]).add(i);
-            }
-        }
-
-        System.out.println(adj);
-
-        int[] vis = new int[V];
-        int[] dfsVis = new int[V];
-        int[] isCycle = new int[V];
-
-        for (int i = 0; i < V; i++) {
-            if (vis[i] == 0) {
-                if (dfs(i, vis, dfsVis, adj)) {
-                    isCycle[i] = 1;
-                }
-            }
-        }
-
-        List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            if (isCycle[i] == 0)
-                ans.add(i);
-        }
-
-        return ans;
     }
 
-    static boolean dfs(int i, int[] vis, int[] dfsVis, List<List<Integer>> adj) {
-        vis[i] = 1;
-        dfsVis[i] = 1;
-        for (Integer it : adj.get(i)) {
-            if (vis[it] == 0) {
-                if (dfs(it, vis, dfsVis, adj))
-                    return true;
-            } else if (dfsVis[it] == 1)
-                return true;
-        }
+    static void shortestPath(int s, ArrayList<ArrayList<Integer>> adj, int V){
+        Stack<Integer> stack = new Stack<>();
 
-        dfsVis[i] = 0;
-        return false;
     }
 
     public static void main(String[] args) {
-        int[][] graph = {{1, 2}, {2, 3}, {5}, {0}, {5}, {}, {}};
-        System.out.println(eventualSafeNodes(graph));
+        int n = 6;
+        ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+            adj.add(new ArrayList<Pair>());
+
+        adj.get(0).add(new Pair(1, 2));
+        adj.get(0).add(new Pair(4, 1));
+        adj.get(0).add(new Pair(2, 3));
+        adj.get(0).add(new Pair(3, 6));
+        adj.get(0).add(new Pair(2, 2));
+        adj.get(0).add(new Pair(5, 4));
+        adj.get(0).add(new Pair(3, 1));
     }
 }

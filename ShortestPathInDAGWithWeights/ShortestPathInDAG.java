@@ -36,9 +36,7 @@ public class ShortestPathInDAG {
         Stack<Integer> stack = new Stack<>();
         int dist[] = new int[N];
 
-        Boolean visited[] = new Boolean[N];
-        for (int i = 0; i < N; i++)
-            visited[i] = false;
+        Boolean[] visited = new Boolean[N];
 
         for (int i = 0; i < N; i++) {
             if (visited[i] == false)
@@ -60,8 +58,8 @@ public class ShortestPathInDAG {
             }
         }
 
-        for(int i=0; i<N; i++){
-            if(dist[i] == Integer.MAX_VALUE)
+        for (int i = 0; i < N; i++) {
+            if (dist[i] == Integer.MAX_VALUE)
                 System.out.println("INF");
             else
                 System.out.println(dist[i] + " ");
