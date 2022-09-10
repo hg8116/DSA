@@ -8,7 +8,6 @@ import java.util.Queue;
 public class ShortestPathInBinaryMatrix {
     public class Pair {
         int x, y, count;
-
         Pair(int x, int y, int count) {
             this.x = x;
             this.y = y;
