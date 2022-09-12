@@ -42,7 +42,8 @@ public class ShortestPathInBinaryMatrix {
                     }
                 }
             }
-            return -1;
         }
+
+        return -1;
     }
 }
