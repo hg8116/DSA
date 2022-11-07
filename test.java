@@ -8,8 +8,7 @@ import java.util.List;
 
 class test {
     public static void main(String[] args) {
-        String a = "hello";
-        System.out.println(a.charAt(0));
+        int[] arr = {5, 5, 10, 100, 10, 5};
 
     }
 }
