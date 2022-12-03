@@ -5,15 +5,26 @@ import java.util.*;
 
 class test {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(10);
-        list.add(13);
-        list.add(12);
-        list.add(14);
-        list.add(17);
+        Map<Integer, Integer> map1 = new TreeMap<>();
+        Map<Integer, Integer> map2 = new TreeMap<>();
+        map1.put(1, 1);
+        map1.put(2, 2);
+        map1.put(3, 3);
+        map2.put(3, 3);
+        map2.put(2, 2);
+        map2.put(1, 1);
+        System.out.println(map1.values().equals(map2.values()));
+        System.out.println(map1.values());
+        System.out.println(map2.values());
+        System.out.println(map2);
 
-        System.out.println(list);
-        System.out.println(list.remove(4));
-        System.out.println(list);
+        List<Integer> list1 = new ArrayList<>(map1.values());
+        List<Integer> list2 = new ArrayList<>(map2.values());
+
+        System.out.println(list1);
+        System.out.println(list2);
+
+        System.out.println(list1.equals(list2));
+        System.out.println(2 ^ 3);
     }
 }
