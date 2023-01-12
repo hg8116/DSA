@@ -5,27 +5,13 @@ import java.util.*;
 
 class test {
     public static void main(String[] args) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int[] values = {2, 2, 3, 3, 2, 4, 4, 4, 4, 4};
-        for (int i = 0; i < values.length; i++) {
-            int x = map.getOrDefault(values[i], 0);
-            map.put(values[i], x + 1);
-        }
+        Scanner sc = new Scanner(System.in);
+        System.out.print("x: ");
+        long x = sc.nextLong();
 
-//        System.out.println(map);
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int count = entry.getValue();
-            int curr = 0;
-            if (count % 3 == 1 && count % 2 == 1)
-                break;
-            while (count % 3 == 0) {
-                curr++;
-            }
-            while (count % 2 == 0) {
-                curr++;
-            }
-        }
-
-        System.out.println(map);
+        if (x >= -128 && x <= 127) System.out.println("* byte");
+        if (x >= -32768 && x <= 32767) System.out.println("* short");
+        if (x >= -2e31 && x <= (2e31 - 1)) System.out.println("* int");
+        if (x >= -2e63 && x <= (2e63 - 1)) System.out.println("* long");
     }
 }
