@@ -11,51 +11,37 @@ public class mergeSort {
   }
 
   // Inplace MergeSort
-  static void mergeSorting(int arr[], int s, int e) {
-    if (e - s == 1) {
-      return;
+  static void mergeSorting(int arr[], int l, int r) {
+    if(l < r){
+      int mid = (l + r) / 2;
+      mergeSorting(arr, l, mid);
+      mergeSorting(arr, mid+1, r);
+      merge(arr, l, mid, r);
     }
-
-    int mid = (s + e) / 2;
-
-    mergeSorting(arr, s, mid);
-    mergeSorting(arr, mid, e);
-
-    merge(arr, s, mid, e);
   }
 
-  static void merge(int arr[], int s, int m, int e) {
-    int mix[] = new int[e - s];
-
-    int i = s;
-    int j = m;
+  static void merge(int arr[], int l, int m, int r) {
+    int[] temp = new int[r-l+1];
+    int i = l;
+    int j = m + 1;
     int k = 0;
 
-    while (i < m && j < e) {
-      if (arr[i] < arr[j]) {
-        mix[k] = arr[i];
-        i++;
-      } else {
-        mix[k] = arr[j];
-        j++;
-      }
-      k++;
+    while(i <= m && j <= r){
+      if(arr[i] < arr[j])
+        temp[k++] = arr[i++];
+      else
+        temp[k++] = arr[j++];
     }
 
-    while (i < m) {
-      mix[k] = arr[i];
-      i++;
-      k++;
+    while(i <= m){
+      temp[k++] = arr[i++];
+    }
+    while(j <= r){
+      temp[k++] = arr[j++];
     }
 
-    while (j < e) {
-      mix[k] = arr[j];
-      j++;
-      k++;
-    }
-
-    for (int l = 0; l < mix.length; l++) {
-      arr[s + l] = mix[l];
+    for(i=l, k=0; i<=r; i++){
+      arr[i] = temp[k++];
     }
   }
 

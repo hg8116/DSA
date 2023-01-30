@@ -19,7 +19,7 @@ public class ShortestPathInDAG {
         int getWeight() {
             return weight;
         }
-    }
+}
 
     void topoligicalSortUtil(int node, Boolean[] visited, Stack stack, ArrayList<ArrayList<Pair>> adj) {
         visited[node] = true;
