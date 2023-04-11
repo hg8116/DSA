@@ -1,7 +1,5 @@
 package Queue;
 
-import jdk.jshell.spi.ExecutionControl;
-
 public class CircularQueue {
     protected int[] data;
     private static final int DEFAULT_SIZE = 10;

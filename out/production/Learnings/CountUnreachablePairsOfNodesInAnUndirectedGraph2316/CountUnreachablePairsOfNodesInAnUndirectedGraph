@@ -1,0 +1,36 @@
+// https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/description/
+
+public class CountUnreachablePairsOfNodesInAnUndirectedGraph{
+    public long countPairs(int n, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i=0; i<n; i++)
+            adj.add(new ArrayList<>());
+
+        for(int[] x: edges){
+            adj.get(x[0]).add(x[1]);
+            adj.get(x[1]).add(x[0]);
+        }
+
+        long ans = ((long)n*(n-1))/2;
+        boolean[] vis = new boolean[n];
+        for(int i=0; i<n; i++){
+            if(!vis[i]){
+                int count = dfs(i, adj, vis, new int[1]);
+                ans -= ((long)count * (count-1))/2;
+            }
+        }
+
+        return ans;
+    }
+
+    int dfs(int node, List<List<Integer>> adj, boolean[] vis, int[] count){
+        vis[node] = true;
+        count[0]++;
+        for(Integer it: adj.get(node)){
+            if(!vis[it])
+                dfs(it, adj, vis, count);
+        }
+
+        return count[0];
+    }
+}
