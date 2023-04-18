@@ -4,25 +4,26 @@ import java.util.*;
 public class test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Stack<Integer> stack = new Stack<>();
         int n = sc.nextInt();
-        int count = sc.nextInt();
-        int[] score = new int[n];
+        int m = sc.nextInt();
+        int[] scores = new int[n];
         for (int i=0; i<n; i++)
-            score[i] = sc.nextInt();
+            scores[i] = sc.nextInt();
 
-        stack.push(score[0]);
+        Stack<Integer> stack = new Stack<>();
+        stack.push(scores[0]);
         int i=1;
         while(i < n){
-            while(!stack.isEmpty() && stack.peek() < score[i] && count > 0){
+            while(!stack.isEmpty() && stack.peek() < scores[i] && m > 0){
                 stack.pop();
-                count--;
+                m--;
             }
-            stack.push(score[i]);
+            stack.push(scores[i]);
             i++;
         }
 
-        System.out.println(stack);
+        for(int x: stack)
+            System.out.print(x + " ");
     }
 }
 
