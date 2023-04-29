@@ -3,6 +3,7 @@
 package ImplementingDijkstraAlgorithmGFG;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class ImplementingDijkstraAlgorithm {
@@ -21,26 +22,25 @@ public class ImplementingDijkstraAlgorithm {
     }
 
     static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
-        int[] dist = new int[V];
-        boolean[] vis = new boolean[V];
-
+        int[] ans = new int[V];
+        Arrays.fill(ans, Integer.MAX_VALUE);
         PriorityQueue<Pair> pq = new PriorityQueue<>();
         pq.add(new Pair(S, 0));
 
         while (!pq.isEmpty()) {
-            Pair node = pq.poll();
-            if (vis[node.v] == false)
-                vis[node.v] = true;
-            else
-                continue;
-
-            dist[node.v] = node.wt;
-            for (ArrayList<Integer> it : adj.get(node.v)) {
-                if (vis[it.get(0)] == false)
-                    pq.add(new Pair(it.get(0), it.get(1) + node.wt));
+            Pair temp = pq.poll();
+            int node = temp.v;
+            int wt = temp.wt;
+            for (ArrayList<Integer> it : adj.get(node)) {
+                int new_v = it.get(0);
+                int new_wt = it.get(1);
+                if (wt + new_wt < ans[new_v]) {
+                    ans[new_v] = wt + new_wt;
+                    pq.add(new Pair(new_v, wt + new_wt));
+                }
             }
-
         }
-        return dist;
+
+        return ans;
     }
 }
